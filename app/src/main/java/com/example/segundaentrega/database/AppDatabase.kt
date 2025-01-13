@@ -12,14 +12,15 @@ import com.example.segundaentrega.data.Raza
 import com.example.segundaentrega.data.Especie
 
 @Database(
-    entities = [Mascota::class, Raza::class, Especie::class],
-    version = 1,
+    entities = [Especie::class, Mascota::class, Raza::class], // Lista de entidades
+    version = 1, // Versión actual de la base de datos
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun mascotaDao(): MascotaDao
-    abstract fun razaDao(): RazaDao
-    abstract fun especieDao(): EspecieDao
+    abstract fun EspecieDao(): EspecieDao
+    abstract fun RazaDao(): RazaDao
 
     companion object {
         @Volatile

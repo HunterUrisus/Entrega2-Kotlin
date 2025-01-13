@@ -1,17 +1,19 @@
 package com.example.segundaentrega.ui.home
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.segundaentrega.data.Mascota
+import com.example.segundaentrega.repository.MascotaRepository
+import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(private val repository: MascotaRepository) : ViewModel() {
 
-    private val _mascotas = MutableLiveData<List<Mascota>>().apply {
-        value = listOf(
-            Mascota(1, "Fido", "2020-01-01", 1, 1),
-            Mascota(2, "Luna", "2019-03-15", 2, 2)
-        )
+    val mascotas: LiveData<List<Mascota>> = repository.getAllMascotas()
+
+    fun addMascota(mascota: Mascota) {
+        viewModelScope.launch {
+            repository.insertMascota(mascota)
+        }
     }
-    val mascotas: LiveData<List<Mascota>> = _mascotas
 }

@@ -1,6 +1,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <data>
+        <variable
+            name="mascota"
+            type="com.example.segundaentrega.data.MascotaWithDetails" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="151dp"
@@ -38,32 +42,35 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textDashboard"
+                        android:id="@+id/mascotaNombre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Princesa"
+                        android:text="@{mascota.nombre}"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/mascotaFechaDeNacimiento"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3 AÑOS"
+                        android:text="@{mascota.fechaNacimiento}"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/mascotaEspecie"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Perro"
+                        android:text="@{mascota.especieNombre}"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/mascotaRaza"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Golden Retriever"
+                        android:text="@{mascota.razaNombre}"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>

@@ -5,9 +5,12 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    foreignKeys = [
-        ForeignKey(entity = Especie::class, parentColumns = ["id"], childColumns = ["especieId"])
-    ]
+    foreignKeys = [ForeignKey(
+        entity = Especie::class,
+        parentColumns = ["id"],
+        childColumns = ["especieId"],
+        onDelete = ForeignKey.CASCADE
+    )]
 )
 data class Raza(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,

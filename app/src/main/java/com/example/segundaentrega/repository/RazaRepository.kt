@@ -1,13 +1,18 @@
 package com.example.segundaentrega.repository
 
+import androidx.lifecycle.LiveData
 import com.example.segundaentrega.dao.RazaDao
 import com.example.segundaentrega.data.Raza
 
-// Repositorio para Raza
 class RazaRepository(private val razaDao: RazaDao) {
-    suspend fun getAllRazas(): List<Raza> = razaDao.getAllRazas()
-    suspend fun getRazaById(id: Int): Raza = razaDao.getRazaById(id)
-    suspend fun insertRaza(raza: Raza): Long = razaDao.insertRaza(raza)
-    suspend fun updateRaza(raza: Raza) = razaDao.updateRaza(raza)
+    fun getAllRazas(): LiveData<List<Raza>> = razaDao.getAllRazas()
+
+    suspend fun insertRaza(raza: Raza)= razaDao.insertRaza(raza)
+
     suspend fun deleteRaza(raza: Raza) = razaDao.deleteRaza(raza)
+
+    suspend fun insertRazaAndGetId(raza: Raza): Int {
+        return razaDao.insertRazaAndGetId(raza).toInt()
+    }
+
 }

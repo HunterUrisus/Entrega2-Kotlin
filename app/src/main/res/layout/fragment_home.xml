@@ -47,5 +47,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintGuide_begin="679dp" />
 
+        <TextView
+            android:id="@+id/emptyListMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="No hay mascotas registradas"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
